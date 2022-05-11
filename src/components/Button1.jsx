@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     appButtonContainer: {
         elevation: 8,
         backgroundColor: "transparent",
-        border: "1px solid blue",
+        border: "3px solid #3190cb",
         borderRadius: 22,
         margin: "1.5rem",
         paddingVertical: 10,
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     },
     appButtonText: {
         fontSize: 18,
-        color: "blue",
+        color: "#465881",
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase"

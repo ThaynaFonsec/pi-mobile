@@ -8,7 +8,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setExibeSplash(false);
-    }, 3 * 1000);
+    }, 500);
   }, []);
 
   return (

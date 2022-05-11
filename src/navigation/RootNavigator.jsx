@@ -7,6 +7,7 @@ import Cadastro from "../../src/screens/Cadastro";
 import HomeScreen from "../screens/HomeScreen";
 import DetailScreen from "../screens/Lista";
 import AuthContext from "../contexts/AuthContext";
+import Lista from "../screens/Lista";
 
 
 const Stack = createNativeStackNavigator();
@@ -20,7 +21,7 @@ export default function App() {
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Cadastro" component={Cadastro} />
                 <Stack.Screen name="Home" component={HomeScreen} />
-                <Stack.Screen name="Details" component={DetailScreen} />
+                <Stack.Screen name="Dashboard" component={Lista} />
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Image, TouchableOpacity, Text, Pressable } from 'react-native';
 import { TextInput } from 'react-native-paper';
+import { Button1 } from "../components/Button1"
 
 export default function Login({ navigation }) {
+
+    const handleUserLogin = (e) => {
+        e.preventDefault()
+        const fake_user = { email: "fulano@gmail.com", password: "123456" }
+        if (email === fake_user.email && password === fake_user.password) {
+            navigation.navigate("Dashboard")
+        }
+        else { throw new Error("Usuario ou senha incorretos") }
+    }
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -10,20 +21,12 @@ export default function Login({ navigation }) {
         <View style={styles.content}>
             <Image style={styles.image} source={require("../assets/images/mainLogo.svg")} />
             <View style={styles.container}>
-                <View style={styles.buttonWrapper}>
-                    <View >
-                        <LogsButton title={'Log in'} />
-                    </View>
-                    <View style={{ paddingTop: 40 }}>
-                        <LogsButton title={'Register'} />
-                    </View>
-                </View>
                 <Text style={styles.logo}>Login</Text>
                 <View style={styles.inputView} >
                     <TextInput
                         style={styles.inputText}
                         placeholder="Email..."
-                        placeholderTextColor="#003f5c"
+                        placeholderTextColor="black"
                         value={email}
                         onChangeText={(text) => setEmail(text)} />
                 </View>
@@ -31,20 +34,18 @@ export default function Login({ navigation }) {
                     <TextInput
                         secureTextEntry
                         style={styles.inputText}
-                        placeholder="Password..."
-                        placeholderTextColor="#003f5c"
+                        placeholder="Senha..."
+                        placeholderTextColor="black"
                         value={password}
                         onChangeText={(text) => setPassword(text)} />
                 </View>
                 <TouchableOpacity>
-                    <Text style={styles.forgot}>Forgot Password?</Text>
+                    <Text style={styles.forgot}>Esqueceu sua senha?</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.loginBtn}>
-                    <Text style={styles.loginText}>LOGIN</Text>
+                    <Text style={styles.loginText} onPress={(e) => handleUserLogin(e)}>LOGIN</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text style={styles.loginText}>Signup</Text>
-                </TouchableOpacity>
+
             </View>
         </View >
     );
@@ -55,42 +56,47 @@ export default function Login({ navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: '#E5E5E5',
         alignItems: 'center',
-        justifyContent: "flex-start",
+        justifyContent: "space-between",
+        border: "5px solid black",
+        margin: 25,
+        borderRadius: 40,
+        borderTopWidth: 30,
+        borderTopColor: "#03113c",
 
     },
     logo: {
         fontWeight: "bold",
         fontSize: 50,
         color: "#03113c",
-        marginBottom: 40,
-        flex: 1,
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "flex-start"
+        margin: 30,
+
     },
     inputView: {
-        width: "80%",
-        backgroundColor: "#465881",
+        width: "90%",
+        backgroundColor: "#E5E5E5",
         borderRadius: 25,
         height: 50,
         marginBottom: 20,
         justifyContent: "center",
-        padding: 20
+        padding: 20,
     },
     inputText: {
         height: 50,
-        color: "white"
+        color: "white",
+        backgroundColor: "#E5E5E5",
     },
     forgot: {
-        color: "white",
-        fontSize: 11
+        color: "black",
+        fontSize: 11,
+
+        height: 40,
+        marginBottom: 20,
     },
     loginBtn: {
         width: "80%",
-        backgroundColor: "#fb5b5a",
+        backgroundColor: "#465881",
         borderRadius: 25,
         height: 50,
         alignItems: "center",
