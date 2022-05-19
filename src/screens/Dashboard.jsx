@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet, Text } from "react-native";
+import FootballFieldScreen from "../components/FootballFieldScreen.jsx";
 import Header from "../components/Header.jsx";
 
 const Dashboard = ({ navigation }) => {
@@ -7,7 +8,7 @@ const Dashboard = ({ navigation }) => {
     <View>
       {/* nome do time */}
       <Header screenName={"Só Canelas F.C."} />
-      <Text>Dashboard</Text>
+      <FootballFieldScreen />
     </View>
   );
 };

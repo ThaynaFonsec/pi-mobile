@@ -5539,6 +5539,11 @@ react-native-codegen@^0.0.17:
     jscodeshift "^0.13.1"
     nullthrows "^1.1.1"
 
+react-native-football-lineup@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/react-native-football-lineup/-/react-native-football-lineup-0.0.3.tgz#05c2e154cc642470454c8595130c9dd52eb548ea"
+  integrity sha512-Im3qzSliyDw40d8NMmvJDhQikENubKELI7YfrzBKecKW3/BpVhfb2W44cGSROJxbHW7KbkTs2Xpyz7O9gfomjg==
+
 react-native-gesture-handler@~2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-2.2.1.tgz#672258aa5a40c92a97c736bdde0a8bd6c8c6c692"
