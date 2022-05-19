@@ -21,7 +21,7 @@ export default function App() {
                 <Stack.Screen name="Cadastro" component={Cadastro} />
                 <Stack.Screen name="Home" component={HomeScreen} />
                  <Stack.Screen
-                     name="Dashboard"
+                     name="MyDrawer"
                      component={MyDrawer}
                      options={{ headerShown: false }}
                         />

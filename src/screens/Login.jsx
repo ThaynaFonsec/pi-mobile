@@ -15,9 +15,9 @@ export default function Login({ navigation }) {
     e.preventDefault();
     const fake_user = { email: "fulano@gmail.com", password: "123456" };
     if (email === fake_user.email && password === fake_user.password) {
-      navigation.navigate("Dashboard");
+      navigation.navigate("MyDrawer");
     } else {
-      navigation.navigate("Dashboard");
+      navigation.navigate("MyDrawer");
     }
   };
 
@@ -25,45 +25,47 @@ export default function Login({ navigation }) {
   const [password, setPassword] = useState("");
 
   return (
-    <View style={styles.content}>
-      <Image
-        style={styles.image}
-        source={require("../assets/images/mainLogo.svg")}
-      />
-      <View style={styles.container}>
-        <Text style={styles.logo}>Login</Text>
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Email..."
-            placeholderTextColor="black"
-            value={email}
-            onChangeText={text => setEmail(text)}
-          />
-        </View>
-        <View style={styles.inputView}>
-          <TextInput
-            secureTextEntry
-            style={styles.inputText}
-            placeholder="Senha..."
-            placeholderTextColor="black"
-            value={password}
-            onChangeText={text => setPassword(text)}
-          />
-        </View>
-        <View style={{ width: "80%" }}>
-          <TouchableOpacity>
-            <Text style={styles.forgot}>Esqueceu sua senha?</Text>
+    <SafeAreaView>
+      <View style={styles.content}>
+        <Image
+          style={styles.image}
+          source={require("../assets/images/mainLogo.svg")}
+        />
+        <View style={styles.container}>
+          <Text style={styles.logo}>Login</Text>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.inputText}
+              placeholder="Email..."
+              placeholderTextColor="black"
+              value={email}
+              onChangeText={text => setEmail(text)}
+            />
+          </View>
+          <View style={styles.inputView}>
+            <TextInput
+              secureTextEntry
+              style={styles.inputText}
+              placeholder="Senha..."
+              placeholderTextColor="black"
+              value={password}
+              onChangeText={text => setPassword(text)}
+            />
+          </View>
+          <View style={{ width: "80%" }}>
+            <TouchableOpacity>
+              <Text style={styles.forgot}>Esqueceu sua senha?</Text>
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity
+            style={styles.loginBtn}
+            onPress={e => handleUserLogin(e)}
+          >
+            <Text style={styles.loginText}>LOGIN</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={styles.loginBtn}
-          onPress={e => handleUserLogin(e)}
-        >
-          <Text style={styles.loginText}>LOGIN</Text>
-        </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

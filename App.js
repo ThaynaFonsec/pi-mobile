@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { AuthProvider } from "./src/contexts/AuthContext.jsx";
 import RootNavigator from "./src/navigation/RootNavigator.jsx";
-
-
-import  Splash  from "./src/screens/Splash.jsx";
+import { Provider as PaperProvider } from "react-native-paper";
+import Splash from "./src/screens/Splash.jsx";
 
 const App = () => {
   const [exibeSplash, setExibeSplash] = useState(true);
@@ -16,8 +15,9 @@ const App = () => {
   return (
     <>
       <AuthProvider>
-        {exibeSplash ? <Splash /> : <RootNavigator />}
-        
+        <PaperProvider>
+          {exibeSplash ? <Splash /> : <RootNavigator />}
+        </PaperProvider>
       </AuthProvider>
     </>
   );

@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Image,
-  TouchableOpacity,
-  Text
-} from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity, Text } from "react-native";
 import { TextInput } from "react-native-paper";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Button1 } from "../components/Button1.jsx";
 
 export default function Cadastro({ navigation }) {
@@ -21,52 +16,54 @@ export default function Cadastro({ navigation }) {
   };
 
   return (
-    <View style={styles.content}>
-      <Image
-        style={styles.image}
-        source={require("../assets/images/mainLogo.svg")}
-      />
-      <View style={styles.container}>
-        <Text style={styles.logo}>Registrar-se</Text>
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Nome Completo"
-            placeholderTextColor="black"
-            value={name}
-            onChangeText={text => {
-              setName(text);
-            }}
-          />
-        </View>
+    <SafeAreaView>
+      <View style={styles.content}>
+        <Image
+          style={styles.image}
+          source={require("../assets/images/mainLogo.svg")}
+        />
+        <View style={styles.container}>
+          <Text style={styles.logo}>Registrar-se</Text>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.inputText}
+              placeholder="Nome Completo"
+              placeholderTextColor="black"
+              value={name}
+              onChangeText={text => {
+                setName(text);
+              }}
+            />
+          </View>
 
-        <View style={styles.inputView}>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Email"
-            placeholderTextColor="black"
-            value={email}
-            onChangeText={text => setEmail(text)}
-          />
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.inputText}
+              placeholder="Email"
+              placeholderTextColor="black"
+              value={email}
+              onChangeText={text => setEmail(text)}
+            />
+          </View>
+          <View style={styles.inputView}>
+            <TextInput
+              secureTextEntry
+              style={styles.inputText}
+              placeholder="Senha"
+              placeholderTextColor="black"
+              value={password}
+              onChangeText={text => setPassword(text)}
+            />
+          </View>
+          <TouchableOpacity
+            style={styles.loginBtn}
+            onPress={e => handleUserRegistration(e)}
+          >
+            <Text style={styles.loginText}>Registrar-se</Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.inputView}>
-          <TextInput
-            secureTextEntry
-            style={styles.inputText}
-            placeholder="Senha"
-            placeholderTextColor="black"
-            value={password}
-            onChangeText={text => setPassword(text)}
-          />
-        </View>
-        <TouchableOpacity
-          style={styles.loginBtn}
-          onPress={e => handleUserRegistration(e)}
-        >
-          <Text style={styles.loginText}>Registrar-se</Text>
-        </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
