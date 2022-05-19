@@ -1,6 +1,7 @@
 import * as React from "react";
 import { View, Text, Button } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
+import { NavigationContainer, DrawerActions } from "@react-navigation/native";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -22,7 +23,7 @@ export default function MyDrawer() {
   return (
     <Drawer.Navigator
       useLegacyImplementation
-      // screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: false }}
       drawerContent={props => <CustomDrawerContent {...props} />}
     >
       <Drawer.Screen
