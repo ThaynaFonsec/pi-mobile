@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Image, View } from 'react-native';
 
-export const Splash = () => {
+export default function Splash () {
     return (
         <>
             <View
