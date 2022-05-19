@@ -5,7 +5,8 @@ import Header from "../components/Header.jsx";
 const Dashboard = ({ navigation }) => {
   return (
     <View>
-      <Header />
+      {/* nome do time */}
+      <Header screenName={"Só Canelas F.C."} />
       <Text>Dashboard</Text>
     </View>
   );

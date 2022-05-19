@@ -3,8 +3,10 @@ import { Appbar } from "react-native-paper";
 import { DrawerActions } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Icon2 from "react-native-vector-icons/Feather";
+import { useNavigation } from "@react-navigation/native";
 
-export default function Header({ navigation }) {
+export default function Header({ screenName }) {
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -18,17 +20,18 @@ export default function Header({ navigation }) {
           name="menu"
           size={50}
           color={"white"}
-          onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+          style={{ paddingRight: 10, paddingLeft: 10 }}
+          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
         <Appbar.Content
-          title="My awesome app"
+          title={screenName}
           style={{ alignItems: "center", right: "3%" }}
         />
         <Icon
           name="sign-out"
           size={40}
           color={"white"}
-          onPress={() => navigation.dispatch(DrawerActions.jumpTo("Login"))}
+          onPress={() => navigation.goBack()}
         />
       </Appbar.Header>
     </View>
