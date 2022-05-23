@@ -8,6 +8,7 @@ import {
   DrawerItemList
 } from "@react-navigation/drawer";
 import Dashboard from "../screens/Dashboard.jsx";
+import Market from "../screens/Market.jsx";
 
 function CustomDrawerContent(props) {
   return (
@@ -24,13 +25,41 @@ export default function MyDrawer() {
     <Drawer.Navigator
       useLegacyImplementation
       screenOptions={{ headerShown: false }}
-      drawerContent={props => <CustomDrawerContent {...props} />}
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
     >
       <Drawer.Screen
         name="DashBoard"
         component={Dashboard}
         options={{
-          title: "My home",
+          title: "Dashboard",
+          headerStyle: {
+            fontWeight: "bold",
+            backgroundColor: "black",
+            display: "flex",
+            flexDirection: "row-reverse",
+            textAlign: "flex-end",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+            opacity: "0.7"
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            backgroundColor: "black",
+            display: "flex",
+            flexDirection: "row-reverse",
+            textAlign: "flex-end",
+            justifyContent: "flex-end",
+            alignItems: "flex-end",
+            opacity: "0.7"
+          }
+        }}
+      />
+      <Drawer.Screen
+        name="Market"
+        component={Market}
+        options={{
+          title: "Mercado da Bola",
           headerStyle: {
             fontWeight: "bold",
             backgroundColor: "black",

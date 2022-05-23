@@ -1,18 +1,18 @@
 import { View } from "react-native";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Appbar } from "react-native-paper";
 import { DrawerActions } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import Icon2 from "react-native-vector-icons/Feather";
-import Icon3 from "react-native-vector-icons/MaterialCommunityIcons";
 import SwitchSelector from "react-native-switch-selector";
-
 import { useNavigation } from "@react-navigation/native";
+import { FieldContext } from "../contexts/FieldTypeContext";
 
 export default function Header({ screenName }) {
-  const [gender, setGender] = useState("");
+  const { handleChange } = useContext(FieldContext);
   const [value, setValue] = useState(Number(100));
   const navigation = useNavigation();
+
   return (
     <>
       <View
@@ -52,7 +52,9 @@ export default function Header({ screenName }) {
       >
         <SwitchSelector
           initial={0}
-          onPress={(value) => setGender(value)}
+          onPress={(value) => {
+            handleChange(value);
+          }}
           buttonColor="#03113c"
           style={[
             {
@@ -66,12 +68,12 @@ export default function Header({ screenName }) {
           options={[
             {
               label: "",
-              value: "Campo",
+              value: `Campo`,
               imageIcon: require("../assets/images/soccer-field.png")
             }, //images.feminino = require('./path_to/assets/img/feminino.png')
             {
               label: "",
-              value: "Prancheta",
+              value: `Prancheta`,
               imageIcon: require("../assets/images/prancheta.png")
             } //images.masculino = require('./path_to/assets/img/masculino.png')
           ]}
@@ -80,7 +82,6 @@ export default function Header({ screenName }) {
         />
         <SwitchSelector
           initial={0}
-          onPress={(value) => setGender(value)}
           buttonColor="#03113c"
           style={[
             {
