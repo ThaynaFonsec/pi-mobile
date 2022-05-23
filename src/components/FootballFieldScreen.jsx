@@ -2,60 +2,76 @@ import React, { Component } from "react";
 import { View, StyleSheet } from "react-native";
 import FootballField from "react-native-football-lineup";
 
-var home = {
-  name: "POR",
+export var home = {
+  name: "PORTUGAL",
+  full_name: "Portugal",
   module: "4-4-2",
   team: [
     [
       {
         number: 1,
-        name: "Patricio"
+        name: "Patricio",
+        position: "Goleiro",
+        is_substitute: true, //booleans para futuras lógicas internas do app
+        is_injured: true, //booleans para futuras lógicas internas do app
+        is_suspended: true, //booleans para futuras lógicas internas do app
+        is_out: true //  booleans para futuras lógicas internas do app
       }
     ],
     [
       {
         number: 21,
-        name: "Soares"
+        name: "Soares",
+        position: "Zagueiro"
       },
       {
         number: 3,
-        name: "Pepe"
+        name: "Pepe",
+        position: "Zagueiro"
       },
       {
         number: 6,
-        name: "Fonte"
+        name: "Fonte",
+        position: "Zagueiro"
       },
       {
         number: 5,
-        name: "Guerriero"
+        name: "Guerriero",
+        position: "Zagueiro"
       }
     ],
     [
       {
         number: 14,
-        name: "Calvalho"
+        name: "Calvalho",
+        position: "Lateral Direita"
       },
       {
         number: 8,
-        name: "Mountinho"
+        name: "Mountinho",
+        position: "Volante"
       },
       {
         number: 11,
-        name: "Silva"
+        name: "Silva",
+        position: "Meia"
       },
       {
         number: 17,
-        name: "Guedes"
+        name: "Guedes",
+        position: "Lateral Esquerdo"
       }
     ],
     [
       {
         number: 16,
-        name: "Fernandes"
+        name: "Fernandes",
+        position: "Atacante"
       },
       {
         number: 7,
-        name: "Cristiano Ronaldo"
+        name: "Cristiano Ronaldo",
+        position: "Atacante"
       }
     ]
   ],
@@ -87,62 +103,74 @@ var home = {
   ]
 };
 
-var away = {
-  name: "SPA",
+export var away = {
+  name: "ESP",
+  full_name: "ESPANHA",
   module: "4-2-3-1",
   team: [
     [
       {
         number: 1,
-        name: "De Gea"
+        name: "De Gea",
+        position: "Goleiro"
       }
     ],
     [
       {
         number: 18,
-        name: "Alba"
+        name: "Alba",
+        position: "Zagueiro"
       },
       {
         number: 15,
-        name: "Ramos"
+        name: "Ramos",
+        position: "Zagueiro"
       },
       {
         number: 3,
-        name: "Pique"
+        name: "Pique",
+        position: "Zagueiro"
       },
       {
         number: 4,
-        name: "Nacho"
+        name: "Nacho",
+        position: "Zagueiro"
       }
     ],
     [
       {
         number: 8,
-        name: "Koke"
+        name: "Koke",
+        position: "Meia"
       },
       {
         number: 5,
-        name: "Busquets"
+        name: "Busquets",
+        position: "Meia"
       }
     ],
     [
       {
         number: 6,
-        name: "Iniesta"
+        name: "Iniesta",
+        position: "Lateral Esquerdo"
       },
       {
         number: 22,
-        name: "Isco"
+        name: "Isco",
+        position: "Volante"
       },
       {
         number: 21,
-        name: "Silva"
+        name: "Silva",
+        position: "Lateral direito"
       }
     ],
     [
       {
         number: 19,
-        name: "Costa"
+        name: "Costa",
+        position: "Atacante"
       }
     ]
   ],
