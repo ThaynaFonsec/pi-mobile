@@ -10,12 +10,11 @@ import { Appbar } from "react-native-paper";
 import { DrawerActions } from "@react-navigation/native";
 import { useNavigation } from "@react-navigation/native";
 
-export default function Market(props, { navigation }) {
+export default function Market(props, { params }) {
   const [searchPosition, setSearchPosition] = useState("");
   const positions = ["Goleiro", "Defensor", "Meia", "Atacante"];
-
+  const navigation = useNavigation();
   function FilterGroup() {
-    const navigation = useNavigation();
     const [activate, setActivate] = useState(positions[0]);
 
     return (
@@ -108,7 +107,7 @@ export default function Market(props, { navigation }) {
                   name="add"
                   color="white"
                   fontWeight="bold"
-                  onPress={() => props.navigation.navigate("Main")}
+                  onPress={() => navigation.navigate("Main")}
                 />
               </Pressable>
             </View>
