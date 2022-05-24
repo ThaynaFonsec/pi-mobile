@@ -61,7 +61,7 @@ export default function Header({ screenName }) {
               height: 50,
               width: 150,
               marginTop: 10,
-              left: 10
+              left: 5
             }
           ]}
           hasPadding
@@ -86,9 +86,9 @@ export default function Header({ screenName }) {
           style={[
             {
               height: 50,
-              width: 300,
+              width: 210,
               marginTop: 10,
-              right: 10
+              right: 5
             }
           ]}
           hasPadding

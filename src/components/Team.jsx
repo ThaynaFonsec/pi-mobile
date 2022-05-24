@@ -11,8 +11,8 @@ import {
 
 export default function Team() {
   return (
-    <View style={styles.container}>
-      <ScrollView>
+    <ScrollView style={{ flex: 1 }}>
+      <View style={styles.container}>
         {home.team[0].map((player, i) => {
           return (
             <View style={styles.cardWrapper}>
@@ -89,20 +89,20 @@ export default function Team() {
             </View>
           );
         })}
-      </ScrollView>
-    </View>
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    height: "100%",
-    width: "96%",
+    width: "100%",
     flexDirection: "column",
-    paddingHorizontal: 8,
+    paddingHorizontal: 10,
     alignItems: "center",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    flex: 1
   },
   player: {
     border: "1px solid blue",

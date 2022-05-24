@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { FieldContext } from "../contexts/FieldTypeContext";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, ScrollView, SafeAreaView } from "react-native";
 import FootballFieldScreen from "../components/FootballFieldScreen.jsx";
 import Header from "../components/Header.jsx";
 import Team from "../components/Team.jsx";
@@ -10,7 +10,7 @@ const Dashboard = ({ navigation }) => {
   const { fieldType } = useContext(FieldContext);
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Header screenName={screenName} />
       {fieldType === "Campo" ? <FootballFieldScreen /> : <Team />}
     </View>

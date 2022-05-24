@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Pressable, Image, Button } from "react-native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  Pressable,
+  Image,
+  ScrollView
+} from "react-native";
 import { Icon } from "react-native-elements";
 import Icon3 from "react-native-vector-icons/FontAwesome";
-
 import Icon2 from "react-native-vector-icons/Feather";
-
 import players from "../data/Players";
 import { Appbar } from "react-native-paper";
 import { DrawerActions } from "@react-navigation/native";
@@ -49,78 +54,82 @@ export default function Market(props, { params }) {
   }
 
   return (
-    <View
-      style={{
-        display: "flex",
-        justifyContent: "space-beetween",
-        alignItems: "stretch"
-      }}
-    >
-      <Appbar.Header style={{ backgroundColor: "#03113c" }}>
-        <Icon2
-          name="menu"
-          size={50}
-          color={"white"}
-          style={{ paddingRight: 10, paddingLeft: 10 }}
-          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-        />
-        <Appbar.Content
-          title="Mercado da Bola"
-          style={{ alignItems: "center", right: "3%" }}
-        />
-        <Icon3
-          name="sign-out"
-          size={40}
-          color={"white"}
-          onPress={() => navigation.goBack()}
-        />
-      </Appbar.Header>
-      <View />
-      {FilterGroup()}
-      <View style={styles.cardGroupWrapper}>
-        {players
-          .filter((val) => {
-            if (searchPosition === "") {
-              return val;
-            } else if (val.position.includes(searchPosition)) {
-              return val;
-            }
-          })
-          .map((player, idx) => (
-            <View style={styles.cardWrapper}>
-              <View style={styles.cardAvatar}>
-                <Image
-                  source={{ uri: player.avatarUrl }}
-                  style={{ height: 80, width: 72, borderRadius: 64 }}
-                />
-              </View>
-              <View style={styles.playerInfo}>
-                <Text style={{ fontWeight: "bold" }}>{player.name}</Text>
-                <Text style={{ opacity: 0.7 }}>{player.position}</Text>
-                <Text style={{ opacity: 0.7 }}>{player.team}</Text>
-                <Text style={{ fontSize: 10, fontWeight: "bold" }}>
-                  {player.price}
-                </Text>
-              </View>
-              <Pressable style={styles.buttonAction}>
-                <Icon
-                  name="add"
-                  color="white"
-                  fontWeight="bold"
-                  onPress={() => navigation.navigate("Main")}
-                />
-              </Pressable>
-            </View>
-          ))}
+    <>
+      <View
+        style={{
+          display: "flex",
+          justifyContent: "space-beetween",
+          alignItems: "stretch"
+        }}
+      >
+        <Appbar.Header style={{ backgroundColor: "#03113c" }}>
+          <Icon2
+            name="menu"
+            size={50}
+            color={"white"}
+            style={{ paddingRight: 10, paddingLeft: 10 }}
+            onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+          />
+          <Appbar.Content
+            title="Mercado da Bola"
+            style={{ alignItems: "center", right: "3%" }}
+          />
+          <Icon3
+            name="sign-out"
+            size={40}
+            color={"white"}
+            onPress={() => navigation.goBack()}
+          />
+        </Appbar.Header>
       </View>
-    </View>
+
+      {FilterGroup()}
+      <ScrollView style={{ flex: 1, marginTop: 10 }}>
+        <View style={styles.cardGroupWrapper}>
+          {players
+            .filter((val) => {
+              if (searchPosition === "") {
+                return val;
+              } else if (val.position.includes(searchPosition)) {
+                return val;
+              }
+            })
+            .map((player, idx) => (
+              <View style={styles.cardWrapper}>
+                <View style={styles.cardAvatar}>
+                  <Image
+                    source={{ uri: player.avatarUrl }}
+                    style={{ height: 80, width: 72, borderRadius: 64 }}
+                  />
+                </View>
+                <View style={styles.playerInfo}>
+                  <Text style={{ fontWeight: "bold" }}>{player.name}</Text>
+                  <Text style={{ opacity: 0.7 }}>{player.position}</Text>
+                  <Text style={{ opacity: 0.7 }}>{player.team}</Text>
+                  <Text style={{ fontSize: 10, fontWeight: "bold" }}>
+                    {player.price}
+                  </Text>
+                </View>
+                <Pressable style={styles.buttonAction}>
+                  <Icon
+                    name="add"
+                    color="white"
+                    fontWeight="bold"
+                    onPress={() => navigation.navigate("Main")}
+                  />
+                </Pressable>
+              </View>
+            ))}
+        </View>
+      </ScrollView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "collumn",
+    flexDirection: "column",
     alignItems: "center",
     backgroundColor: "#E5E5E5"
   },
@@ -128,12 +137,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     borderColor: "white",
-    borderTopWidth: 1,
-    borderBottomWidth: 1,
-    padding: 8,
-    width: "100%",
-    height: 40,
-    backgroundColor: "#E5E5E5"
+    marginTop: 20,
+    marginBottom: 20,
+    width: "100%"
   },
   buttonDisable: {
     alignItems: "center",
@@ -169,10 +175,7 @@ const styles = StyleSheet.create({
   },
   cardGroupWrapper: {
     alignItems: "center",
-    height: "100%",
-    width: "96%",
-    marginTop: 32
-    //backgroundColor: 'white'
+    justifyContent: "center"
   },
   cardWrapper: {
     flexDirection: "row",

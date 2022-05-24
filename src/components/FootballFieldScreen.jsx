@@ -1,21 +1,20 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 import FootballField from "react-native-football-lineup";
 import { home, away } from "../data/team.js";
 
 export default function FootballFieldScreen() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <FootballField home={home} away={away} />
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 35,
-    borderColor: "#fff",
-    backgroundColor: "#e5e5e5"
+    margin: 10,
+    marginTop: 20
   }
 });
