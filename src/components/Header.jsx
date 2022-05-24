@@ -32,7 +32,7 @@ export default function Header({ screenName }) {
           />
           <Appbar.Content
             title={screenName}
-            style={{ alignItems: "center", right: "3%" }}
+            style={{ alignItems: "center", right: "2%" }}
           />
           <Icon
             name="sign-out"
