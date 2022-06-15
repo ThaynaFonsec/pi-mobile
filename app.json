@@ -1,10 +1,4 @@
 {
-  "expo": {
-    "name": "FootballApp",
-    "slug": "FootballApp",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  }
+  "name": "mobilev1",
+  "displayName": "mobilev1"
 }
