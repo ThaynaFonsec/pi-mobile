@@ -9,8 +9,8 @@ import {
   Pressable,
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
-import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard';
 import {useForm} from 'react-hook-form';
 
 //Dev components and providers
@@ -20,7 +20,7 @@ import CustomInput from '../../components/CustomInput';
 import {styles} from './styles';
 
 export default function RegisterPage({navigation}) {
-  const {signUp} = useContext(AuthContext);
+  const {SignUp} = useContext(AuthContext);
   const {
     handleSubmit,
     control,
@@ -31,7 +31,7 @@ export default function RegisterPage({navigation}) {
   const pwd = watch('password');
 
   return (
-    <TouchableWithoutFeedback onPress={dismissKeyboard}>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'position'}
         style={styles.container}>
@@ -45,10 +45,10 @@ export default function RegisterPage({navigation}) {
         {/*Component who wrap the inside part of input field*/}
         <View style={styles.insideComponent_FormWrapper}>
           <CustomInput
+            key={0}
             name="email"
             inputTitle="Email:"
             iconName="mail"
-            key={0}
             control={control}
             keyboardType="email-address"
             autoCapitalize="none"
@@ -59,10 +59,10 @@ export default function RegisterPage({navigation}) {
             }}
           />
           <CustomInput
+            key={1}
             name="password"
             inputTitle="Senha:"
             iconName="unlock"
-            key={1}
             control={control}
             autoCapitalize="none"
             placeholder="Digite sua senha..."
@@ -70,13 +70,13 @@ export default function RegisterPage({navigation}) {
             rules={{required: 'Campo obrigatório'}}
           />
           <CustomInput
+            key={2}
             name="validatePassword"
             inputTitle="Confirme a senha:"
             iconName="lock1"
-            key={2}
             control={control}
             autoCapitalize="none"
-            placeholder="Digite sua senha novamente..."
+            placeholder="Digite a senha inserida novamente..."
             secureTextEntry={true}
             rules={{
               validate: value =>
@@ -111,7 +111,7 @@ export default function RegisterPage({navigation}) {
           <RegularButton
             title="Registra-se"
             iconName="save"
-            func={handleSubmit(signUp)}
+            func={handleSubmit(SignUp)}
           />
         </View>
       </KeyboardAvoidingView>
